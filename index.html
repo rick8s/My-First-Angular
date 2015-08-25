@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <!-- always place the bootstrap stylesheet link BEFORE my stylesheet as shown below-->
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Oswald|Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular</title>
+    <meta charset="utf-8">
+   
+  </head>
+
+  <body ng-app="TodoApp">
+    <section ng-controller="TodoCtrl">
+      <h1>{{ title }}</h1>
+      <div>
+      <input type="text" ng-model="macaroni" />
+      <div> {{ macaroni }} </div>
+      </div>
+      <!-- Add a new item to the todo list -->
+      <div>
+        <input type="text" ng-model="newTodo">
+        <button ng-click="addTodo()">Create</button>
+      </div>
+
+      <div>
+        <ul class="todo-list" ng-repeat="todo in todos">
+          <li>{{todo.name}} <button ng-click="killTodo(todo)">Finish</button></li>
+        </ul>
+      </div>
+    </section>
+    <section ng-controller="SongsCtrl">
+      <h1>{{title}}</h1>
+      <div>
+        <ul class="songs-list" ng-repeat="item in songs">
+          <li><h2>{{item.title}}</h2></li>
+          <li>{{item.album}} | {{item.artist}} | {{item.genre}}</li>
+          <button ng-click="killSongs(item)">Delete</button>
+        </ul>
+      </div>
+      <div>
+        Song Name: <input type="text" ng-model="newSong.title" />
+      </div>
+      <div>
+        Song Album: <input type="text" ng-model="newSong.album" />
+      </div>
+      <div>
+        Song Artist: <input type="text" ng-model="newSong.artist" />
+      </div>
+      <div>
+        Song Genre: <input type="text" ng-model="newSong.genre" />
+      </div>
+      <button ng-click="addSongs()">Add Song</button>
+
+
+    
+    <script src="lib/bower_components/angular/angular.min.js"></script> 
+    <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>   
+    <script src="app/app.js"></script>
+    <script src="controllers/Todo.js"></script>  
+    <script src="controllers/Songs.js"></script>
+  </body>
+</html>
+
